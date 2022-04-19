@@ -25,7 +25,18 @@ class Requester {
     }
   }
 
-  async charge(charge_data: ChargeRequestBody) {
+  async getCharge(charge_id: string) {
+    if (!charge_id) throw new Error("No charge id was setted");
+
+    try {
+      const { data } = await axios.get(`/charges/${charge_id}`);
+      return data;
+    } catch (e) {
+      return e.response.data;
+    }
+  }
+
+  async createCharge(charge_data: ChargeRequestBody) {
     if (!charge_data) throw new Error("No charge data was setted");
 
     try {

@@ -1,29 +1,30 @@
 <h1 align="center">PagseguroJS</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/tiorubs/pagsegurojs?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/tiorubs/@tiorubs/pagseguro?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/tiorubs/pagsegurojs?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/tiorubs/@tiorubs/pagseguro?color=56BEB8">
 
 </p>
 
 <br>
-## :checkered_flag: Getting Started
+
+# Getting Started
 
 ```bash
-$ yarn add pagsegurojs
+$ yarn add @tiorubs/pagseguro
 ```
 
 OR
 
 ```bash
-$ npm i pagsegurojs
+$ npm i @tiorubs/pagseguro
 ```
 
-# USAGE
+# Usage
 
 ```typescript
-import PagSeguro from "pagsegurojs";
+import PagSeguro from "@tiorubs/pagseguro";
 
 const pagseguro = await PagSeguro({
   token:""
@@ -31,10 +32,10 @@ const pagseguro = await PagSeguro({
 });
 ```
 
-## Card charge sample
+## Card charge
 
 ```typescript
-const PagSeguro = require("pagsegurojs");
+import PagSeguro from "@tiorubs/pagseguro";
 
 const test_card = {
   number: "4111111111111111",
@@ -60,7 +61,7 @@ const charge = await pagseguro.charge(1000);
 ## Generating public keys
 
 ```typescript
-const PagSeguro = require("pagsegurojs");
+import PagSeguro from "@tiorubs/pagseguro";
 
 const pagseguro = new PagSeguro({
   token: "",
@@ -73,7 +74,7 @@ const public_key = await pagseguro.getPublicKeys();
 ## Reversing payment
 
 ```typescript
-const PagSeguro = require("pagsegurojs");
+import PagSeguro from "@tiorubs/pagseguro";
 
 const transaction_id: string = "";
 const value: number = 1000;
@@ -83,5 +84,5 @@ const pagseguro = new PagSeguro({
   sandbox: true,
 });
 
-const response = await pagseguro.getPublicKeys(transaction_id, value);
+const response = await pagseguro.reversePayment(transaction_id, value);
 ```

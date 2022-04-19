@@ -1,5 +1,5 @@
 {
-  "name": "pagsegurojs",
+  "name": "@tiorubs/pagseguro",
   "version": "0.0.1",
   "description": "Wrapper da API do PagSeguro",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "pagseguro"
   ],
   "author": "tiorubs",
-  "repository": "github:tiorubs/pagsegurojs",
+  "repository": "github:tiorubs/pagseguro",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1"

@@ -64,7 +64,11 @@ class PagSeguro {
     this.description = description;
   }
 
-  async charge(value: number) {
+  async getCharge(charge_id: string) {
+    return this._requester.getCharge(charge_id);
+  }
+
+  async createCharge(value: number, notification_url?: string) {
     if (!value) throw new Error("the value was not setted");
     if (!this.payment_type) throw new Error("the payment type was not setted");
 
@@ -82,11 +86,13 @@ class PagSeguro {
       },
     } as ChargeRequestBody;
 
+    if (notification_url) data.notification_urls = [notification_url];
+
     if (this.payment_type === "CREDIT_CARD") data.payment_method.card = this.credit_card;
 
     if (this.payment_type === "BOLETO") data.payment_method.boleto = this.boleto;
 
-    return this._requester.charge(data);
+    return this._requester.createCharge(data);
   }
 
   async reversePayment(transaction_id: string, value: number) {
@@ -99,7 +105,7 @@ class PagSeguro {
     pagseguro.setDescription("validating credit card");
     pagseguro.setCard(card);
 
-    const charge = await pagseguro.charge(1000);
+    const charge = await pagseguro.createCharge(1000);
 
     if (!charge.status || charge.status !== "PAID") return false;
 

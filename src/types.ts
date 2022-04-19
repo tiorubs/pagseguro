@@ -58,6 +58,7 @@ export type ChargeRequestBody = {
   payment_method: PaymentMethodProps;
   card?: CreditCardProps;
   boleto?: BoletoProps;
+  notification_urls: string[];
 };
 
 export type ChargeRequestResponse = {
