@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "sourceMap": false,
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+    "lib": ["ESNEXT"],
+    "rootDirs": ["src/"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "downlevelIteration": true
+  },
+  "include": ["src/"]
+}
