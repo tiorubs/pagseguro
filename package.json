@@ -14,7 +14,7 @@
   "repository": "github:tiorubs/pagseguro",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1"
+    "node-fetch": "2.6.5"
   },
   "devDependencies": {
     "@types/node": "^16.10.2",
